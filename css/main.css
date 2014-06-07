@@ -191,6 +191,12 @@ header {
     letter-spacing: 2px;
 }
 
+@media screen and (max-width: 768px) {
+    .header h2 {
+        font-size: 0.96em;
+    }
+}
+
 /* project section */
 
 .work {
