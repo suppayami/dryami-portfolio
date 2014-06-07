@@ -197,6 +197,12 @@ header {
     }
 }
 
+@media screen and (max-width: 640px) {
+    .header h2 {
+        font-size: 0.82em;
+    }
+}
+
 /* project section */
 
 .work {
