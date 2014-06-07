@@ -61,6 +61,12 @@ header {
     transition: all 0.4s ease-out;
 }
 
+@media screen and (max-width: 960px) {
+    .navbar li {
+        font-size: 1em;
+    }
+}
+
 .navbar li:hover {
     color: #cf4436;
     background-color: rgba(233,93,79,0.1);
@@ -86,12 +92,30 @@ header {
 .header {
     position: relative;
     width: 100%;
-    min-height: 400px;
+    min-height: 280px;
     background-color: #E74C3C;
     border-bottom: 12px solid #292929;
     z-index: 5;
     text-align: center;
     color: #F9F9F9;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        max-height: 600px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .header {
+        max-height: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        max-height: 400px;
+    }
 }
 
 .header .wrapper {
@@ -138,6 +162,16 @@ header {
     height: 5.4em;
     margin: auto;
     position: relative;
+}
+
+@media screen and (max-width: 1280px) {
+    .header .title {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+        position: relative;
+    }
 }
 
 .header span {
