@@ -2,9 +2,13 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+img {
+    display: block;
+}
+
 /* for fixed navbar */
 header {
-    margin-bottom: 96px;
+    margin-bottom: 72px;
 }
 
 .container {
@@ -17,9 +21,11 @@ header {
     margin: 0 auto;
 }
 
+/* navbar section */
+
 .navbar {
     width: 100%;
-    height: 96px;
+    height: 72px;
 }
 
 .navbar-fixed {
@@ -32,6 +38,51 @@ header {
     background-color: #F9F9F9;
 }
 
+.navbar ul {
+    height: 104px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar li {
+    font-size: 1.3em;
+    display: inline-block;
+    width: 25%;
+    height: 72px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 72px;
+    text-transform: uppercase;
+    border-bottom: 0px solid rgba(233,93,79,0.5);
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.navbar li:hover {
+    color: #cf4436;
+    background-color: rgba(233,93,79,0.1);
+    border-bottom: 8px solid rgba(233,93,79,0.5);
+}
+
+.navbar a {
+    display: block;
+    color: #5F5F5F;
+    text-decoration: none;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.navbar a:hover {
+    color: #cf4436;
+}
+
+/* header section */
+
 .header {
     position: relative;
     width: 100%;
@@ -39,6 +90,18 @@ header {
     background-color: #E74C3C;
     border-bottom: 12px solid #292929;
     z-index: 5;
+    text-align: center;
+    color: #F9F9F9;
+}
+
+.header .wrapper {
+    position: relative;
+    margin: auto;
+    top: 35%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .header::after {
@@ -69,6 +132,33 @@ header {
     border-top-color: #292929;
 }
 
+.header .title {
+    width: auto;
+    max-width: 100%;
+    height: 5.4em;
+    margin: auto;
+    position: relative;
+}
+
+.header span {
+    display: block;
+    position: relative;
+    font-size: 3.5em;
+    margin: auto;
+    margin-top: -0.7em;
+}
+
+.header h2 {
+    display: block;
+    position: relative;
+    font-size: 1.2em;
+    margin: auto;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* project section */
+
 .work {
     position: relative;
     width: 100%;
@@ -76,6 +166,8 @@ header {
     background-color: #2F2F2F;
     border-bottom: 12px solid #292929;
 }
+
+/* profile section */
 
 .about {
     position: relative;
@@ -85,6 +177,8 @@ header {
     border-bottom: 12px solid #292929;
 }
 
+/* contact section */
+
 .contact {
     position: relative;
     width: 100%;
@@ -92,6 +186,8 @@ header {
     background-color: #2F2F2F;
     border-bottom: 12px solid #292929;
 }
+
+/* footer section */
 
 footer {
     position: relative;
