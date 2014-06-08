@@ -70,7 +70,7 @@ header {
 .navbar li:hover {
     color: #cf4436;
     background-color: rgba(233,93,79,0.1);
-    border-bottom: 8px solid rgba(233,93,79,0.5);
+    border-bottom: 8px solid rgba(235,111,98,0.75);
 }
 
 .navbar a {
@@ -93,7 +93,8 @@ header {
     position: relative;
     width: 100%;
     min-height: 280px;
-    background-color: #E74C3C;
+    /*background-color: #E74C3C;*/
+    background-color: #CE534D;
     border-bottom: 12px solid #292929;
     z-index: 5;
     text-align: center;
@@ -139,7 +140,7 @@ header {
     border-style: solid;
     border-color: transparent;
     border-width: 2em;
-    border-top-color: #E74C3C;
+    border-top-color: #CE534D;
 }
 
 .header::before {
@@ -185,7 +186,7 @@ header {
 .header h2 {
     display: block;
     position: relative;
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin: auto;
     font-weight: normal;
     letter-spacing: 2px;
