@@ -24,3 +24,28 @@ $(".project-wrapper").hover(function() {
     $(this).find(".project-button").addClass("fadeOutUp");
     $(this).find(".overlay").addClass("fadeOut");
 });
+
+var app = angular.module('app', ['ngRoute'], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('<%');
+    $interpolateProvider.endSymbol('%>');
+});
+
+app.controller("PortfolioController", function($scope) {
+    $(".header").css("height", $(window).height() - 52);
+
+    $scope.gotoSection = function(section) {
+        $('html, body').animate({
+            scrollTop: $(section).offset().top - 64
+        }, 500);
+    };
+});
+
+app.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl : 'template/portfolio.html',
+            controller  : 'PortfolioController'
+        });
+
+    $locationProvider.html5Mode(true);
+});
