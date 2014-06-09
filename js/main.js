@@ -6,6 +6,7 @@ var app = angular.module('app', ['ngRoute'], function($interpolateProvider) {
 });
 
 app.controller("PortfolioController", function($scope) {
+    $('html, body').scrollTop(0);
     $(".header").css("height", $(window).height() - 52);
     $(window).resize(function() {
         $(".header").css("height", $(window).height() - 52);
