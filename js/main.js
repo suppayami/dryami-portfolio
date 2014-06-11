@@ -5,7 +5,7 @@ $globalApp.allPosts = null;
 
 $(".header").css("height", $(window).height() - 52);
 
-var app = angular.module('app', ['ngRoute'], function($interpolateProvider) {
+var app = angular.module('app', ['ngRoute', 'ngSanitize'], function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 });
@@ -117,19 +117,22 @@ app.controller("BlogController", function($scope, $timeout, Global, posts) {
         $('html, body').animate({
             scrollTop: 0
         }, 300);
-        $timeout(function() {
-            var section = "#posts";
-            $('html, body').animate({
-                scrollTop: $(section).offset().top - 64
-            }, 300);
-        }, 750);
+        // $timeout(function() {
+        //     var section = "#posts";
+        //     $('html, body').animate({
+        //         scrollTop: $(section).offset().top - 64
+        //     }, 300);
+        // }, 750);
     } else {
         $timeout(function() {
             $('html, body').animate({
-                scrollTop: $("#posts").offset().top
+                scrollTop: $("#posts").offset().top - 64
             }, 300);
         }, 100);
     }
+
+    $('#posts').find(".container").removeClass("slideOutRight");
+    $('#posts').find(".container").addClass("animated slideInLeft");
 
     $(".header").css("height", $(window).height() - 52);
     $(window).resize(function() {
@@ -149,6 +152,42 @@ app.controller("BlogController", function($scope, $timeout, Global, posts) {
 
     $globalApp.reset = false;
     $globalApp.toPost = false;
+});
+
+app.controller("PostController", function($scope, $timeout, Global, post) {
+    $scope.post = post;
+    Global.setTitle(post.title + " | Dr.Yami");
+
+    if ($globalApp.reset) {
+        $('.navbar').addClass("animated fadeInDown");
+        $('#view').addClass("animated fadeIn");
+        $('body').css('display', 'block');
+        $('.header').find('h2').addClass("animated fadeInLeft animated-1s");
+        $('.header').find('img').addClass("animated bounceIn animated-1s");
+    } else {
+        $('#navbar').removeClass("slideOutRight");
+        $('#navbar').addClass("animated slideInLeft");
+        $('.header').find('h2').removeClass("bounceOutDown");
+        $('.header').find('h2').addClass("animated bounceIn");
+        $('.header').find('#wrapper').addClass("animated bounceIn animated-1s");
+    }
+
+    $('html, body').animate({
+        scrollTop: 0
+    }, 300);
+
+    $(".header").css("height", $(window).height() - 52);
+    $(window).resize(function() {
+        $(".header").css("height", $(window).height() - 52);
+    });
+
+    $scope.gotoSection = function(section) {
+        $('html, body').animate({
+            scrollTop: $(section).offset().top - 64
+        }, 500);
+    };
+
+    $globalApp.reset = false;
 });
 
 app.config(function($routeProvider, $locationProvider) {
@@ -203,39 +242,21 @@ app.config(function($routeProvider, $locationProvider) {
                         $('#navbar').addClass("animated slideOutRight");
                         $('.header').find('h2').removeClass("animated fadeInLeft animated-1s");
                         $('.header').find('h2').addClass("animated bounceOutDown");
+                    } else {
+                        $('#posts').find(".container").addClass("animated slideOutRight");
                     }
 
-                    if (!$globalApp.allPosts) {
-                        $http({method: "GET", url: "/category/all.json"}).
-                            success(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve(data);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve(data);
-                                }
-                            }).
-                            error(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve([]);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve([]);
-                                }
-                            });
-                    } else {
-                        if (!$globalApp.toPost) {
+                    $http({method: "GET", url: "/category/all.json"}).
+                        success(function(data, status) {
                             $timeout(function() {
-                                delay.resolve($globalApp.allPosts);
+                                delay.resolve(data);
                             }, 500);
-                        } else {
-                            delay.resolve($globalApp.allPosts);
-                        }
-                    }
+                        }).
+                        error(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve([]);
+                            }, 500);
+                        });
 
                     return delay.promise;
                 }
@@ -268,39 +289,21 @@ app.config(function($routeProvider, $locationProvider) {
                         $('#navbar').addClass("animated slideOutRight");
                         $('.header').find('h2').removeClass("animated fadeInLeft animated-1s");
                         $('.header').find('h2').addClass("animated bounceOutDown");
+                    } else {
+                        $('#posts').find(".container").addClass("animated slideOutRight");
                     }
 
-                    if (!$globalApp.allPosts) {
-                        $http({method: "GET", url: "/category/all.json"}).
-                            success(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve(data);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve(data);
-                                }
-                            }).
-                            error(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve([]);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve([]);
-                                }
-                            });
-                    } else {
-                        if (!$globalApp.toPost) {
+                    $http({method: "GET", url: "/category/all.json"}).
+                        success(function(data, status) {
                             $timeout(function() {
-                                delay.resolve($globalApp.allPosts);
+                                delay.resolve(data);
                             }, 500);
-                        } else {
-                            delay.resolve($globalApp.allPosts);
-                        }
-                    }
+                        }).
+                        error(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve([]);
+                            }, 500);
+                        });
 
                     return delay.promise;
                 }
@@ -333,39 +336,21 @@ app.config(function($routeProvider, $locationProvider) {
                         $('#navbar').addClass("animated slideOutRight");
                         $('.header').find('h2').removeClass("animated fadeInLeft animated-1s");
                         $('.header').find('h2').addClass("animated bounceOutDown");
+                    } else {
+                        $('#posts').find(".container").addClass("animated slideOutRight");
                     }
 
-                    if (!$globalApp.allPosts) {
-                        $http({method: "GET", url: "/category/all.json"}).
-                            success(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve(data);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve(data);
-                                }
-                            }).
-                            error(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve([]);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve([]);
-                                }
-                            });
-                    } else {
-                        if (!$globalApp.toPost) {
+                    $http({method: "GET", url: "/category/all.json"}).
+                        success(function(data, status) {
                             $timeout(function() {
-                                delay.resolve($globalApp.allPosts);
+                                delay.resolve(data);
                             }, 500);
-                        } else {
-                            delay.resolve($globalApp.allPosts);
-                        }
-                    }
+                        }).
+                        error(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve([]);
+                            }, 500);
+                        });
 
                     return delay.promise;
                 }
@@ -398,39 +383,84 @@ app.config(function($routeProvider, $locationProvider) {
                         $('#navbar').addClass("animated slideOutRight");
                         $('.header').find('h2').removeClass("animated fadeInLeft animated-1s");
                         $('.header').find('h2').addClass("animated bounceOutDown");
+                    } else {
+                        $('#posts').find(".container").addClass("animated slideOutRight");
                     }
 
-                    if (!$globalApp.allPosts) {
-                        $http({method: "GET", url: "/category/all.json"}).
-                            success(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve(data);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve(data);
-                                }
-                            }).
-                            error(function(data, status) {
-                                if (!$globalApp.toPost) {
-                                    $timeout(function() {
-                                        delay.resolve([]);
-                                    }, 500);
-                                }
-                                else {
-                                    delay.resolve([]);
-                                }
-                            });
-                    } else {
-                        if (!$globalApp.toPost) {
+                    $http({method: "GET", url: "/category/all.json"}).
+                        success(function(data, status) {
                             $timeout(function() {
-                                delay.resolve($globalApp.allPosts);
+                                delay.resolve(data);
                             }, 500);
-                        } else {
-                            delay.resolve($globalApp.allPosts);
-                        }
+                        }).
+                        error(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve([]);
+                                return delay.promise;
+                            }, 500);
+                        });
+
+                    return delay.promise;
+                }
+            }
+        })
+        .when('/blog/:cat/:title', {
+            templateUrl : '/template/post.html',
+            controller  : 'PostController',
+            resolve     : {
+                post : function($q, $timeout, $http, $route) {
+                    var delay = $q.defer();
+                    var params = $route.current.params;
+
+                    if (!$globalApp.reset) {
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 400);
+
+                        $('#navbar').addClass("animated slideOutRight");
+                        $('.header').find('.wrapper').addClass("animated bounceOutDown");
                     }
+                    
+                    $http({method: "GET", url: "/blog/"+params.cat+"/"+params.title+"/raw.json"})
+                        .success(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve(data);
+                            }, 500);
+                        })
+                        .error(function(data, status) {
+                            delay.resolve({});
+                        });
+
+                    return delay.promise;
+                }
+            }
+        })
+        .when('/blog/:cat/:title/', {
+            templateUrl : '/template/post.html',
+            controller  : 'PostController',
+            resolve     : {
+                post : function($q, $timeout, $http, $route) {
+                    var delay = $q.defer();
+                    var params = $route.current.params;
+
+                    if (!$globalApp.reset) {
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 400);
+
+                        $('#navbar').addClass("animated slideOutRight");
+                        $('.header').find('.wrapper').addClass("animated bounceOutDown");
+                    }
+                    
+                    $http({method: "GET", url: "/blog/"+params.cat+"/"+params.title+"/raw.json"})
+                        .success(function(data, status) {
+                            $timeout(function() {
+                                delay.resolve(data);
+                            }, 500);
+                        })
+                        .error(function(data, status) {
+                            delay.resolve({});
+                        });
 
                     return delay.promise;
                 }

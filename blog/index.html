@@ -9,7 +9,7 @@ layout: none
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta property="og:title" content="Dr.Yami - Personal Page" />
+    <meta property="og:title" content="Blog | Dr.Yami" />
     <meta property="og:image" content="http://yamiworld.com/img/kudchan.jpg" />
     <meta property="fb:admins" content="837014671"/>
     <meta name="google-site-verification" content="ba23xEg0i5EyJSrnxVL298rhcM6KVuPmzN3Tv2QbFoY" />
@@ -47,25 +47,25 @@ layout: none
 
 	<section class="category" id="category">
 	    <div class="container">
-	        <img src="/img/coding.svg" class="title"/>
+	        <img src="/img/living1.svg" class="title"/>
 	        <h1>Categories</h1>
 	        <h2>choose a blog category</h2>
 
 	        <div class="pure-g cats">
-	            <div class="pure-u-1-4">
-	                <a class="active">All Posts</a>
+	            <div class="pure-u-1-4 catb">
+	                <a id="all" href="/blog" ng-click="changeCategory(0)" ng-class="{active:catId == 0}">All Posts</a>
 	            </div>
 
-	            <div class="pure-u-1-4">
-	                <a>Articles</a>
+	            <div class="pure-u-1-4 catb">
+	                <a id="article" href="/blog/articles" ng-click="changeCategory(1)" ng-class="{active:catId == 1}">Articles</a>
 	            </div>
 
-	            <div class="pure-u-1-4">
-	                <a>Tutorials</a>
+	            <div class="pure-u-1-4 catb">
+	                <a id="tutorial" href="/blog/tutorials" ng-click="changeCategory(2)" ng-class="{active:catId == 2}">Tutorials</a>
 	            </div>
 
-	            <div class="pure-u-1-4">
-	                <a>Rants</a>
+	            <div class="pure-u-1-4 catb">
+	                <a id="personal" href="/blog/personal" ng-click="changeCategory(3)" ng-class="{active:catId == 3}">Personal</a>
 	            </div>
 	        </div>
 	    </div>
@@ -73,7 +73,7 @@ layout: none
 
 	<section class="posts" id="posts">
 	    <div class="container">
-	        <img src="/img/kudchan.jpg" class="title"/>
+	        <img src="/img/talk8.svg" class="title"/>
 	        <h1>All Posts</h1>
 	        <h2>read something you find useful there</h2>
 
@@ -82,12 +82,12 @@ layout: none
 	            <div class="wrapper">
 	                <div class="post-header">
 	                    <div class="post-title">
-	                        <a><h1>{{ post.title }}</h1></a>
+	                        <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
 	                        <h2>{{ post.drdate }} | {% for cat in post.categories %}<a>{{ cat }}</a>{% unless forloop.last %} {% endunless %}{% endfor %}</h2>
 	                    </div>
 	                    
 	                    <div class="post-button">
-	                        <a class="readmore">Read More</a>
+	                        <a href="{{ post.url }}" class="readmore">Read More</a>
 	                    </div>
 	                </div>
 
@@ -120,6 +120,7 @@ layout: none
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.2.17/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.17/angular-sanitize.min.js"></script>
     <script src="/js/main.js"></script>
 
 </body>

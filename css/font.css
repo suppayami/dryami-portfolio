@@ -51,6 +51,7 @@
     font-style: normal;
 }
 /*
+url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg'),
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: 'Open Sans';
@@ -81,3 +82,16 @@
         line-height: 1;
     }
 }*/
+
+@font-face {
+  font-family: 'Open Sans VN';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTYLVesmXbmCMjcFi0Yy5Rpk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans VN';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/59ZRklaO5bWGqF5A9baEEbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}

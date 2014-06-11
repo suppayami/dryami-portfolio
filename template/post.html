@@ -1,0 +1,64 @@
+<header>
+    <nav class="navbar navbar-fixed blognav">
+        <div id="navbar" class="container">
+            <ul>
+            <li><a href="/">Portfolio</a></li><li><a href="/blog">Post List</a></li><li><a ng-click="gotoSection('#contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section class="header">
+    <div class="wrapper">
+    <h1><% post.title %></h1>
+    <span>. . .</span>
+    <h2><% post.date %> | <em ng-repeat="cat in post.categories"><% cat %></span></h2>
+    </div>
+</section>
+
+<section class="singlepost" id="singlepost">
+    <div class="container">
+        <div class="content">
+        <div ng-bind-html="post.content"></div>
+        </div>
+    </div>
+</section>
+
+<section class="comment" id="comment">
+    <div class="container">
+        <div class="content">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'dryami'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <img src="/img/email6.svg" class="title"/>
+        <h1>Contact</h1>
+        <h2>where to find and contact me</h2>
+        <div class="icon"><a href="http://fi.linkedin.com/in/cuongnt/" target="_blank"><img src="/img/linkedin22.svg"/></a></div><div class="icon"><a href="https://twitter.com/SuppaYami" target="_blank"><img src="/img/twitter39.svg"/></a></div><div class="icon"><a href="https://github.com/suppayami" target="_blank"><img src="/img/github19.svg"/></a></div><div class="icon"><a href="https://soundcloud.com/dr-yami" target="_blank"><img src="/img/soundcloud8.svg"/></a></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="content">
+            <p>&copy; 2014 Dr.Yami</p>
+            <p>Icon made by Elegant Themes, Freepik, SimpleIcon, Icomoon from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a></p>
+        </div>
+    </div>
+</footer>

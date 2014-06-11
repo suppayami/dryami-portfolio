@@ -18,7 +18,7 @@
 
 <section class="category" id="category">
     <div class="container">
-        <img src="/img/coding.svg" class="title"/>
+        <img src="/img/living1.svg" class="title"/>
         <h1>Categories</h1>
         <h2>choose a blog category</h2>
 
@@ -44,20 +44,20 @@
 
 <section class="posts" id="posts">
     <div class="container">
-        <img src="/img/kudchan.jpg" class="title"/>
-        <h1><% postCategory %></h1>
+        <img src="/img/talk8.svg" class="title"/>
+        <h1> <% postCategory %> </h1>
         <h2>read something you find useful there</h2>
 
         <div class="post-wrapper content">
             <div class="wrapper" ng-repeat="post in posts | filter:category">
                 <div class="post-header">
                     <div class="post-title">
-                        <a><h1><% post.title %></h1></a>
+                        <a href="<% post.url %>"><h1><% post.title %></h1></a>
                         <h2><% post.date %> | <span ng-repeat="cat in post.categories"><% cat %></span></h2>
                     </div>
                     
                     <div class="post-button">
-                        <a class="readmore">Read More</a>
+                        <a href="<% post.url %>" class="readmore">Read More</a>
                     </div>
                 </div>
 

@@ -18,6 +18,7 @@ module Jekyll
                 :categories =>  post.categories,
                 :content    =>  md2html.convert(post.content),
                 :date       =>  post.date.strftime("%B #{post.date.day.ordinalize}, %Y").downcase,
+                :url        =>  post.url.to_s,
             }
 
             json = JSON.generate(hash)
@@ -40,8 +41,7 @@ module Jekyll
         def write(dest)
             path  = "#{dest}/category/"
             posts = []
-
-            @site.posts.each do |post|
+            @site.posts.sort{|a,b|b.date <=> a.date}.each do |post|
                 next unless post.categories.include?(@category) || @category.upcase == "ALL"
                 description = post.data['description'] rescue ""
                 hash = {
@@ -49,6 +49,7 @@ module Jekyll
                     :categories  =>  post.categories,
                     :date        =>  post.date.strftime("%B #{post.date.day.ordinalize}, %Y").downcase,
                     :description =>  description,
+                    :url         =>  post.url.to_s,
                 }
                 
                 posts.push(hash)
