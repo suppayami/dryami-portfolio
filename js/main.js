@@ -91,9 +91,9 @@ app.controller("BlogController", function($scope, $timeout, Global, posts) {
             $scope.postCategory = "Tutorials";
             break;
         case 3:
-            Global.setTitle("Rants | Dr.Yami");
-            $scope.category = "rants";
-            $scope.postCategory = "Rants";
+            Global.setTitle("Personal Life | Dr.Yami");
+            $scope.category = "personal";
+            $scope.postCategory = "Personal Life";
             break;
         default:
             Global.setTitle("Blog | Dr.Yami");
@@ -371,7 +371,7 @@ app.config(function($routeProvider, $locationProvider) {
                 }
             }
         })
-        .when('/blog/rants', {
+        .when('/blog/personal', {
             templateUrl : '/template/blog.html',
             controller  : 'BlogController',
             resolve     : {
