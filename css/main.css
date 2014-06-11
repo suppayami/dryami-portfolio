@@ -149,6 +149,12 @@ header {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .navbar li {
+        font-size: 0.8em;
+    }
+}
+
 .navbar li:hover {
     color: #cf4436;
     background-color: rgba(206,83,77,0.1);
@@ -747,17 +753,17 @@ footer .container {
     border-bottom: 8px solid #292929;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
     .category a {
-        font-size: 1.7em;
-        height: 1.7em;
-        line-height: 1.7em;
+        font-size: 1.5em;
+        height: 1.8em;
+        line-height: 1.8em;
     }
 }
 
 @media screen and (max-width: 768px) {
     .category a {
-        font-size: 1.5em;
+        font-size: 1.2em;
         height: 1.5em;
         line-height: 1.5em;
     }
@@ -765,7 +771,7 @@ footer .container {
 
 @media screen and (max-width: 560px) {
     .category a {
-        font-size: 1.2em;
+        font-size: 1em;
         height: 1.2em;
         line-height: 1.2em;
     }
