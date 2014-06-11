@@ -2,7 +2,8 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2014-06-10 14:47:24
-categories: jekyll update
+categories: rants
+description: "Anyone who goes through life trusting people without making sure they are worthy of trust is a fool. Yet there are people who may be trusted, men as well as women. There are are as many difference in their natures as there are flowers in these meadows."
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
