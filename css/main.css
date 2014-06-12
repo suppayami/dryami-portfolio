@@ -1033,6 +1033,17 @@ footer .container {
     margin: auto;
 }
 
+.singlepost .caption {
+  color: #F9F9F9;
+  font-weight: 300;
+  font-size: 90%;
+  max-width: 75%;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* comment section */
 
 .comment {
