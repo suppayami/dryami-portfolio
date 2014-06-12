@@ -3,7 +3,7 @@ layout: drpost
 title:  "Mobile games development - Đời có như mơ?"
 date:   2013-07-26 10:43:00
 categories: articles
-description: "Những nhận định sai lầm và mặt trái của mobile games development."
+description: "Vietnamese. Những nhận định sai lầm và mặt trái của mobile games development."
 ---
 
 Đã từ rất lâu rồi, mình thấy các bạn đổ xô đi phát triển ứng dụng cho smartphone
