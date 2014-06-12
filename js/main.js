@@ -434,37 +434,6 @@ app.config(function($routeProvider, $locationProvider) {
                     return delay.promise;
                 }
             }
-        })
-        .when('/blog/:cat/:title/', {
-            templateUrl : '/template/post.html',
-            controller  : 'PostController',
-            resolve     : {
-                post : function($q, $timeout, $http, $route) {
-                    var delay = $q.defer();
-                    var params = $route.current.params;
-
-                    if (!$globalApp.reset) {
-                        $('html, body').animate({
-                            scrollTop: 0
-                        }, 400);
-
-                        $('#navbar').addClass("animated slideOutRight");
-                        $('.header').find('.wrapper').addClass("animated bounceOutDown");
-                    }
-                    
-                    $http({method: "GET", url: "/blog/"+params.cat+"/"+params.title+"/raw.json"})
-                        .success(function(data, status) {
-                            $timeout(function() {
-                                delay.resolve(data);
-                            }, 500);
-                        })
-                        .error(function(data, status) {
-                            delay.resolve({});
-                        });
-
-                    return delay.promise;
-                }
-            }
         });
 
     $locationProvider.html5Mode(true);

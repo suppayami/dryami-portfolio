@@ -18,7 +18,7 @@ module Jekyll
                 :categories =>  post.categories,
                 :content    =>  md2html.convert(post.content),
                 :date       =>  post.date.strftime("%B #{post.date.day.ordinalize}, %Y").downcase,
-                :url        =>  post.url.to_s,
+                :url        =>  post.url.to_s.gsub(/^(.*)\/$/i, '\1'),
             }
 
             json = JSON.generate(hash)
@@ -49,7 +49,7 @@ module Jekyll
                     :categories  =>  post.categories,
                     :date        =>  post.date.strftime("%B #{post.date.day.ordinalize}, %Y").downcase,
                     :description =>  description,
-                    :url         =>  post.url.to_s,
+                    :url         =>  post.url.to_s.gsub(/^(.*)\/$/i, '\1'),
                 }
                 
                 posts.push(hash)
