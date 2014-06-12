@@ -74,6 +74,7 @@ module Jekyll
             site.posts.each do |post|
                 site.static_files << PostJSON.new(site, post)
                 post.data['drdate'] = post.date.strftime("%B #{post.date.day.ordinalize}, %Y").downcase
+                post.data['remurl'] = post.url.to_s.gsub(/^(.*)\/$/i, '\1')
             end
             site.static_files << CategoryJSON.new(site, "all")
         end
