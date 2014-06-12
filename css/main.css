@@ -280,7 +280,6 @@ header {
     font-size: 3em;
     margin: auto;
     font-weight: normal;
-    font-family: "Open Sans VN";
 }
 
 .header h2 {
@@ -994,7 +993,7 @@ footer .container {
 }
 
 .singlepost .content {
-    font-family: "Open Sans VN";
+    font-family: "Open Sans";
     font-weight: 400;
 }
 
