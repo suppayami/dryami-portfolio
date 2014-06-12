@@ -190,19 +190,7 @@ header {
 
 @media screen and (max-width: 800px) {
     .header {
-        max-height: 600px;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .header {
-        max-height: 500px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .header {
-        max-height: 400px;
+        max-height: 640px;
     }
 }
 
@@ -292,12 +280,20 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 1.25em;
+    }
+
     .header h2 {
         font-size: 0.96em;
     }
 }
 
 @media screen and (max-width: 640px) {
+    .header h1 {
+        font-size: 1em;
+    }
+
     .header h2 {
         font-size: 0.82em;
     }
