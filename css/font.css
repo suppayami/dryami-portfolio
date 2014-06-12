@@ -82,35 +82,3 @@ url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg'),
         line-height: 1;
     }
 }*/
-
-@font-face {
-  font-family: 'Open Sans VN';
-  font-style: normal;
-  font-weight: 300;
-  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTYLVesmXbmCMjcFi0Yy5Rpk.woff) format('woff');
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-        font-family: 'Open Sans VN';
-        src: url('../fonts/Open Sans VN Light.svg') format('svg');
-        font-weight: 300;
-        font-style: normal;
-    }
-}
-
-@font-face {
-  font-family: 'Open Sans VN';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/59ZRklaO5bWGqF5A9baEEbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-        font-family: 'Open Sans VN';
-        src: url('../fonts/Open Sans VN Regular.svg') format('svg');
-        font-weight: 400;
-        font-style: normal;
-    }
-}
