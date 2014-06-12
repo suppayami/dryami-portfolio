@@ -194,6 +194,12 @@ header {
     }
 }
 
+@media screen and (max-width: 640px) {
+    .header {
+        max-height: 480px;
+    }
+}
+
 .header .wrapper {
     position: relative;
     margin: auto;
