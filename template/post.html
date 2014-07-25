@@ -32,8 +32,9 @@
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
                 var post = angular.element($("#view")).scope().post;
                 var disqus_shortname = 'dryami'; // required: replace example with your forum shortname
-                var disqus_identifier = post.url;
-                console.log(post);
+		if (post !== undefined) {
+	                var disqus_identifier = post.url;
+		}
 
                 /* * * DON'T EDIT BELOW THIS LINE * * */
                 (function() {
