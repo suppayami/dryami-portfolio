@@ -4,6 +4,7 @@ email: cuongnt.hn@gmail.com
 description: "Dr.Yami's Personal Homepage, includes portfolio and blog."
 baseurl: ""
 url: "http://yamiworld.com"
+moeurl: "http://yami.moe"
 
 # Build settings
 markdown: kramdown
