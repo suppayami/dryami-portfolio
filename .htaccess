@@ -1,4 +1,10 @@
 RewriteEngine On
 DirectorySlash Off
+
+RewriteCond %{HTTP_HOST} ^yamiworld\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.yamiworld.\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.yami\.moe$ [NC]
+RewriteRule (.*) http://yami.moe/$1 [R=301,L]
+
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
 RewriteRule ^(.*)$ /$1/index.html [L]
